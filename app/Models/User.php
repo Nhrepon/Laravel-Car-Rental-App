@@ -16,27 +16,7 @@ class User extends Model
 
     protected $attributes = [
         'password',
-        'remember_token',
     ];
-
-
-
-
-
-// Define isAdmin() and isCustomer() methods as described in your requirements
-public function isAdmin(){
-    return $this->role === 'admin';
-}
-
-public function isCustomer(){
-    return $this->role === 'customer';
-}
-
-// Define the rentals() relationship
-public function rentals(){
-    return $this->hasMany(Rental::class);
-}
-
 
 
 

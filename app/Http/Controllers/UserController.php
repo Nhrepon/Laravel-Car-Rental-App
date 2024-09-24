@@ -10,24 +10,22 @@ class UserController extends Controller
     public function userRegistration(Request $request)
     {
         try{
-            User::create([
-                'name' => $request->input('name'),
-                'email' => $request->input('email'),
-                'password' => bcrypt($request->input('password')),
-            ]);
+            $user = User::create($request->all());
+
             return response()->json([
                 'status' => 'success',
-                'message' => 'User created successfully',	
+                'message' => 'User created successfully',
+                'user'=> $user
             ],200);
         }catch(Exception $e){
             return response()->json($e->getMessage());
         }
-        return view('user.registration');
+
     }
 
 
 
 
 
-    
+
 }

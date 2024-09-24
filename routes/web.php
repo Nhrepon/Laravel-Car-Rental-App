@@ -8,8 +8,11 @@ Route::get('/', function () {
     return view('user.registration');
 });
 
-Route::get('/registration',[UserController::class,'userRegistration']);
+Route::post('/registration',[UserController::class,'userRegistration']);
+Route::get('/userRegistration',function (){return view('user.registration');});
 
 
 
-Route::get('/dashboard',[UserController::class,'userRegistration']);
+Route::get('/dashboard',function (){
+    return view('dashboard');
+});
