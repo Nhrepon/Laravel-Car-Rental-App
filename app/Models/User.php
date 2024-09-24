@@ -14,33 +14,26 @@ class User extends Model
     ];
 
 
-    protected $hidden = [
+    protected $attributes = [
         'password',
         'remember_token',
     ];
 
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
 
 
 
 // Define isAdmin() and isCustomer() methods as described in your requirements
-public function isAdmin()
-{
+public function isAdmin(){
     return $this->role === 'admin';
 }
 
-public function isCustomer()
-{
+public function isCustomer(){
     return $this->role === 'customer';
 }
 
 // Define the rentals() relationship
-public function rentals()
-{
+public function rentals(){
     return $this->hasMany(Rental::class);
 }
 
