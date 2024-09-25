@@ -12,7 +12,7 @@
                 <li class="px-2 py-1"><a href="/contact">Contact</a></li>
             </ul>
         </div>
-        <div class="flex flex-wrap items-center">
+        <div class="flex items-center">
             <div class="flex flex-wrap items-center me-5">
                 <input class="form-input w-[350px] rounded-3xl pe-8" type="search" placeholder="Search" />
                 <button class="-ms-8">
