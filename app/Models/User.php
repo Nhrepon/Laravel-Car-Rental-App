@@ -10,11 +10,10 @@ class User extends Model
         'name',
         'email',
         'password',
-        'role'
     ];
 
 
-    protected $attributes = [
+    protected $hidden = [
         'password',
     ];
 
