@@ -9,7 +9,8 @@ Route::get('/', function () {
 });
 
 Route::post('/registration',[UserController::class,'userRegistration']);
-Route::get('/userRegistration',function (){return view('user.registration');});
+Route::get('/create',function (){return view('user.registration');});
+Route::get('/login',function (){return view('user.login');});
 
 
 

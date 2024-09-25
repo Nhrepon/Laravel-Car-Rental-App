@@ -14,7 +14,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased my-0 mx-auto container">
+    <body class="font-sans antialiased mx-auto">
         @include('layouts.navigation')
         <main>
             {{ $slot }}
