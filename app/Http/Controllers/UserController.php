@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Helper\jwtToken;
 
 class UserController extends Controller
 {
@@ -27,6 +28,28 @@ class UserController extends Controller
             ]);
         }
 
+    }
+
+
+    public function userLogin(Request $request)
+    {
+
+        $user = User::where('email', '=', $request->input('email'))
+        ->where('password', '=', $request->input('password'))
+        ->count();
+        if($user > 0){
+            $token = jwtToken::encodeToken($request->input('email'));
+            return response()->json([
+                'status' => 'success',
+                'message' => 'User login successfully',
+                'token' => $token
+            ]);
+        }else{
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'User login failed',
+            ]);
+        }
     }
 
 
