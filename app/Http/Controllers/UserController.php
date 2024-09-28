@@ -35,14 +35,15 @@ class UserController extends Controller
     {
 
         $user = User::where('email', '=', $request->input('email'))
-        ->where('password', '=', $request->input('password'))
-        ->count();
-        if($user > 0){
-            $token = jwtToken::encodeToken($request->input('email'));
+        ->where('password', '=', $request->input('password'))->get();
+
+        if(count($user) > 0){
+            $token = jwtToken::encodeToken($user[0]->email, $user[0]->role);
             return response()->json([
                 'status' => 'success',
                 'message' => 'User login successfully',
-                'token' => $token
+                'token' => $token,
+                'data' => $user
             ]);
         }else{
             return response()->json([

@@ -5,28 +5,29 @@ use Firebase\JWT\JWT;
 
 class jwtToken
 {
-    public static function encodeToken($email)
+    public static function encodeToken($email, $role)
 {
     $key = '123abc';
     $payload = [
         'iss' => 'carental',
         'iat' => time(),
         'exp' => time()+60*60,
-        'email' => $email
+        'email' => $email,
+        'role' => $role
     ];
     return JWT::encode($payload, $key, 'HS256');
 
 }
 
-    public static function decodeToken($token)
-{
-try {
-    $key = '123abc';
-    $decoded = JWT::decode($token, $key, ['HS256']);
-    return $decoded->email;
-} catch ( Throwable $e) {
-    return false;
-}
+public static function decodeToken($token)
+    {
+    try {
+        $key = '123abc';
+        $decoded = JWT::decode($token, $key, ['HS256']);
+        return $decoded;
+    } catch ( Throwable $e) {
+        return false;
+    }
 
 }
 

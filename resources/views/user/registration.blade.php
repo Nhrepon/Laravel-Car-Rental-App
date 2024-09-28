@@ -8,7 +8,7 @@
         <input name="password" class="form-input rounded w-full" type="password" placeholder="Password"/>
         <button class="bg-green-500 p-2 rounded m-auto" type="submit">Create</button>
         <br>
-        <div class="text-center">Already have an account? <a class="text-green-500 font-bold" href="/login">Login</a></div>
+        <div class="text-center">Already have an account? <a class="text-green-500 font-bold" href="{{url('/login')}}">Login</a></div>
     </form>
 </div>
 </x-app-layout>
