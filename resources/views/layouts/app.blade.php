@@ -11,7 +11,14 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/toastify.min.css') }}" />
+
         <!-- Scripts -->
+         <script src="{{ asset('js/axios.min.js') }}" ></script>
+         <script src="{{ asset('js/config.js') }}" ></script>
+         <script src="{{ asset('js/toastify-js.js') }}" ></script>
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased mx-auto">

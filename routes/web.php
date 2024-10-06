@@ -4,18 +4,23 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
 
-Route::get('/', function () {
-    return view('user.registration');
-});
-Route::post('/registration',[UserController::class,'userRegistration']);
-Route::get('/login', function (){return view('user.login');});
-
-Route::get('/create',function (){return view('user.registration');});
-
+// Page routes
+Route::get('/', function () {return view('user.registration');});
+Route::get('/user-registration', function () {return view('user.registration');});
+Route::get('/user-login', function (){return view('user.login');});
 Route::get('/blog',function (){return view('page.blog');});
 Route::get('/car',function (){return view('page.car');});
 Route::get('/about',function (){return view('page.about');});
 Route::get('/contact',function (){return view('page.contact');});
+
+
+// Api routes
+Route::post('/registration',[UserController::class,'userRegistration']);
+Route::post('/login',[UserController::class,'userLogin']);
+
+
+
+
 
 
 

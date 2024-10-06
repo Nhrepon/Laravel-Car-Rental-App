@@ -22,7 +22,7 @@
                 </button>
             </div>
 
-            <a href="/login" class="bg-green-500 py-1 px-2 rounded m-auto">Login</a>
+            <a href="{{url('/user-login')}}" class="bg-green-500 py-1 px-2 rounded m-auto">Login</a>
         </div>
     </div>
 </nav>

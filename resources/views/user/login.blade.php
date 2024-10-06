@@ -6,7 +6,7 @@
 
         <button onclick="login()" class="bg-green-500 p-2 rounded m-auto" type="submit">Login</button>
         <br>
-        <div class="text-center">Don't have an account? <a class="text-green-500 font-bold" href="{{url('/create')}}">Registration</a></div>
+        <div class="text-center">Don't have an account? <a class="text-green-500 font-bold" href="{{url('/user-registration')}}">Registration</a></div>
     </form>
 
     <script>
@@ -14,7 +14,8 @@
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
             if (email.length == 0) {
-                alert('Please enter email');
+                errorToast('Please enter email');
+                
             } else if (password.length == 0) {
                 alert('Please enter password');
             } else {
