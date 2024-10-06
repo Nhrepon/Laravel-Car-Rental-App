@@ -22,7 +22,7 @@ function errorToast(msg) {
         gravity: "top", // `top` or `bottom`
         position: "center", // `left`, `center` or `right`
         text: msg,
-        className: "mt-5 p-2",
+        className: "mt-5 p-3 rounded",
         style: {
             background: "red",
         }
