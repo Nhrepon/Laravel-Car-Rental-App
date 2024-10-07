@@ -9,9 +9,8 @@ class jwtToken
 {
     $key = '123abc';
     $payload = [
-        'iss' => 'carental',
+        'iss' => 'Carental',
         'iat' => time(),
-        'exp' => time()+60*60,
         'email' => $email,
         'role' => $role
     ];

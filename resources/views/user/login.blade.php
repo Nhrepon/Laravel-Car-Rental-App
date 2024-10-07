@@ -22,6 +22,7 @@
                 let response = await axios.post('/login', {email: email, password: password});
                 
                 if (response.data['status'] == 'success') {
+                    
                     window.location.href = '/dashboard';
                 } else {
                     errorToast("Login failed");
