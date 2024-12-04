@@ -13,18 +13,23 @@
 
         <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/toastify.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
 
         <!-- Scripts -->
          <script src="{{ asset('js/axios.min.js') }}" ></script>
          <script src="{{ asset('js/config.js') }}" ></script>
          <script src="{{ asset('js/toastify-js.js') }}" ></script>
+         
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased mx-auto">
-        @include('layouts.navigation')
+    <body class="font-sans antialiased mx-auto vh-100">
+        @include('components.navigation')
         <main>
             {{ $slot }}
         </main>
+        @include('components.footer')
+
+        <script src="{{ asset('js/bootstrap.js') }}" ></script>
     </body>
 </html>

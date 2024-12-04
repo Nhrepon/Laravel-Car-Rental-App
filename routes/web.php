@@ -5,7 +5,7 @@ use App\Http\Controllers\UserController;
 
 
 // Page routes
-Route::get('/', function () {return view('user.registration');});
+Route::get('/', function () {return view('page.home');});
 Route::get('/user-registration', function () {return view('user.registration');});
 Route::get('/user-login', function (){return view('user.login');});
 Route::get('/blog',function (){return view('page.blog');});
