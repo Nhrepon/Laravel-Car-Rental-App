@@ -25,6 +25,7 @@ function errorToast(msg) {
         className: "mt-5 p-3 rounded",
         style: {
             background: "red",
-        }
+        },
+        duration: 3000
     }).showToast();
 }

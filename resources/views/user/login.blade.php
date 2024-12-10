@@ -10,7 +10,7 @@
                                 <input id="password" class="form-control rounded" type="password" placeholder="Password" />
                                 <button onclick="login()" class="btn btn-success text-center">Login</button>
                                 <br>
-                                <div class="text-center">Don't have an account? <a class="text-green-500 font-bold" href="{{url('/user-registration')}}">Registration</a></div>
+                                <div class="text-center">Don't have an account? <a class="text-success" href="{{url('/user-registration')}}">Registration</a></div>
 
                             </div>
                         </div>

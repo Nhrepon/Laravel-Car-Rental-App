@@ -1,46 +1,60 @@
-<x-app-layout>
-    <div class="container mx-auto">
-        <div class="flex gap-1">
-            <div class="w-1/5 bg-gray-100 h-svh">
-                <h3 class="text-center p-2 text-3xl">Dashboard</h3>
-                <hr />
-                <ul class="list-none gap-1 h-svh text-1xl" style="max-height: 70vh">
-                    <li class="group hover:bg-gray-200 transition-all duration-500">
-                        <a href="{{route('dashboard')}}" class="p-2" style="display: inline-block; width:100%;">Home</a>
-                    </li>
-                    <li class="group hover:bg-gray-200 transition-all duration-500"><a
-                            href="{{route('car')}}" class="p-2" style="display: inline-block; width:100%;">Car</a>
-                    </li>
-                    <li class="group hover:bg-gray-200 transition-all duration-500"><a
-                            href="{{route('car')}}" class="p-2" style="display: inline-block; width:100%;">Car</a>
-                    </li>
-                    
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-                </ul>
-            </div>
-            <div class="w-4/5">
-                <h3 class="p-2 text-3xl">Content</h3>
-                <hr />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'CARENTAL') }}</title>
 
 
+    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/toastify.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
 
-                <x-slot name="header">
-                    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                        {{ __('Dashboard') }}
-                    </h2>
-                </x-slot>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
 
-                <div class="py-12">
-                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                            <div class="p-6 text-gray-900 dark:text-gray-100">
-                                {{ __("You're logged in!") }}
-                            </div>
+<body class="font-sans antialiased mx-auto vh-100">
+    <main>
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3">
+
+                        <div class="bg-success p-2 vh-100">
+                            <h3 class="text-center p-2 text-3xl">Dashboard</h3>
+                            <hr />
+                            <ul class=" list-unstyled" style="max-height: 70vh">
+                                <li class="nav-item">
+                                    <a href="{{route('dashboard')}}" class="nav-link" style="display: inline-block; width:100%;">Home</a>
+                                </li>
+                                <li class="nav-item"><a
+                                        href="{{route('car')}}" class="nav-link" style="display: inline-block; width:100%;">Car</a>
+                                </li>
+                                <li class="nav-item"><a
+                                        href="{{route('car')}}" class="nav-link" style="display: inline-block; width:100%;">Car</a>
+                                </li>
+
+
+                            </ul>
                         </div>
+                    </div>
+                    <div class="col-9">
+                        @yield('content')
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</x-app-layout>
+    </main>
+
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/axios.min.js') }}"></script>
+    <script src="{{ asset('js/config.js') }}"></script>
+    <script src="{{ asset('js/toastify-js.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+</body>
+
+</html>

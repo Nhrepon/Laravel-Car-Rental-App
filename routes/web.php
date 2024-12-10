@@ -24,5 +24,5 @@ Route::post('/login',[UserController::class,'userLogin']);
 
 
 
-Route::get('/dashboard',function (){return view('dashboard');})->name('dashboard');
+Route::get('/dashboard',function (){return view('dashboard.dashboardPage');})->name('dashboard');
 Route::get('/car',function (){return view('dashboard');})->name('car');

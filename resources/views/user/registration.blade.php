@@ -1,14 +1,60 @@
 <x-app-layout>
-<div class="flex justify-center items-center w-full h-svh">
-    <form action="/registration" method="POST" class="p-10 flex flex-wrap gap-5 rounded bg-blue-100 w-[400px]">
-        @csrf
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex justify-content-center align-items-center m-auto vh-100">
+                        <div class="card shadow p-3">
+                            <div class="card-body d-flex flex-column gap-3">
+                                <input id="name" name="name" class="form-control rounded" type="text" placeholder="Name" />
+                                <input id="email" name="email" class="form-control rounded" type="email" placeholder="Email" />
+                                <input id="password" name="password" class="form-control rounded" type="password" placeholder="Password" />
+                                <button onclick="registration()" class="btn btn-success text-center" type="submit">Create</button>
+                                <br>
+                                <div class="text-center">Already have an account? <a class="text-success" href="{{url('/user-login')}}">Login</a></div>
 
-        <input name="name" class="form-input rounded w-full" type="text" placeholder="Name"/>
-        <input name="email" class="form-input rounded w-full" type="email" placeholder="Email"/>
-        <input name="password" class="form-input rounded w-full" type="password" placeholder="Password"/>
-        <button class="bg-green-500 p-2 rounded m-auto" type="submit">Create</button>
-        <br>
-        <div class="text-center">Already have an account? <a class="text-green-500 font-bold" href="{{url('/user-login')}}">Login</a></div>
-    </form>
-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        async function registration() {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            try {
+                if (name.length == 0) {
+                errorToast('Please enter your valid name');
+
+            }else if (email.length == 0) {
+                errorToast('Please enter a valid email');
+
+            } else if (password.length == 0) {
+                errorToast('Please enter strong password');
+            } else {
+                let response = await axios.post('/registration', {
+                    name: name,
+                    email: email,
+                    password: password
+                });
+
+                if (response.data['status'] == 'success') {
+
+                    window.location.href = '/user-login';
+                } else if(response.data['status'] == 'duplicate'){
+                    errorToast("Email already exists. Please try to login");
+                }else{
+                    errorToast("Registration failed");
+                }
+            }
+            } catch (error) {
+                errorToast(error.message);
+            }
+        }
+    </script>
 </x-app-layout>

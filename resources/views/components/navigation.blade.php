@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg container-fluid shadow sticky-top">
+<nav class="navbar navbar-expand-lg container-fluid shadow sticky-top bg-light">
     <div class="container">
-        <a class="navbar-brand fs-2 fw-bold" href="/">CARENTAL</a>
+        <a class="navbar-brand fs-3 fw-bold" href="/">CARENTAL</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
