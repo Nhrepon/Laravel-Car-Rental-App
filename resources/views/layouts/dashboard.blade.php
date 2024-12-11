@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/toastify.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/dashboard.css', 'resources/js/dashboard.js'])
 </head>
 
 <body class="font-sans antialiased mx-auto vh-100">
@@ -20,27 +20,29 @@
         <div class="container-fluid">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-3">
-
+<!-- Sidebar area                     -->                    
+                    <div class="col--3 sidebar">
                         <div class="bg-success p-2 vh-100">
-                            <h3 class="text-center p-2 text-3xl">Dashboard</h3>
+                        <h3 class="p-2 text-3xl text-light d-flex justify-content-center gap-2"><i class="bi bi-speedometer"></i><span class="d-sm-inline-block d-none">Dashboard</span></h3>
+                        <i class="toggle bg-success text-light bi bi-chevron-left d-none d-sm-flex"></i>
                             <hr />
-                            <ul class=" list-unstyled" style="max-height: 70vh">
-                                <li class="nav-item">
-                                    <a href="{{route('dashboard')}}" class="nav-link" style="display: inline-block; width:100%;">Home</a>
+                            <ul class="list-unstyled d-flex flex-column gap-2" style="max-height: 70vh">
+                                <li class="nav-item d-flex bg-light rounded px-2 py-1 d-flex justify-content-center justify-content-sm-start">
+                                    <a href="{{route('dashboard')}}" class="nav-link gap-2 d-flex"><i class="bi bi-house"></i><span class="d-sm-inline-block d-none">Home</span></a>
                                 </li>
-                                <li class="nav-item"><a
-                                        href="{{route('car')}}" class="nav-link" style="display: inline-block; width:100%;">Car</a>
+                                <li class="nav-item d-flex bg-light rounded px-2 py-1 d-flex justify-content-center justify-content-sm-start"><a
+                                        href="{{route('car')}}" class="nav-link">Car</a>
                                 </li>
-                                <li class="nav-item"><a
-                                        href="{{route('car')}}" class="nav-link" style="display: inline-block; width:100%;">Car</a>
+                                <li class="nav-item d-flex bg-light rounded px-2 py-1 d-flex justify-content-center justify-content-sm-start"><a
+                                        href="{{route('car')}}" class="nav-link">Car</a>
                                 </li>
 
 
                             </ul>
                         </div>
                     </div>
-                    <div class="col-9">
+<!-- Main content area                     -->
+                    <div class="col--9 content">
                         @yield('content')
                     </div>
                 </div>
